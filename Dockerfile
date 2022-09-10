@@ -1,4 +1,4 @@
-FROM ghcr.io/seisscoped/container-base
+FROM ghcr.io/seisscoped/pysep
 
 LABEL maintainer="Ian Wang"
 

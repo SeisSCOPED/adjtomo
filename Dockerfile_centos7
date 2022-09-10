@@ -1,4 +1,4 @@
-FROM ghcr.io/seisscoped/container-base:centos7
+FROM ghcr.io/seisscoped/pysep:centos7
 
 LABEL maintainer="Ian Wang"
 

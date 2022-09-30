@@ -3,7 +3,7 @@ FROM ghcr.io/seisscoped/pysep:ubuntu20.04_jupyterlab
 LABEL maintainer="Ian Wang"
 
 RUN apt-get update --yes \
-    && apt-get install -yq --no-install-recommends zlib1g-dev gfortran mpich \
+    && apt-get install -yq --no-install-recommends zlib1g-dev gfortran libmpich-dev mpich \
     && docker-clean
 
 RUN cd /home/scoped \

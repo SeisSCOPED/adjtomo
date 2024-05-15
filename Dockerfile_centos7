@@ -6,17 +6,15 @@ RUN cd /home/scoped \
     && git clone https://github.com/adjtomo/adjdocs \
     && git clone --branch devel https://github.com/adjtomo/seisflows \
     && git clone --branch devel https://github.com/adjtomo/pyatoa \
-    && git clone --branch devel https://github.com/geodynamics/specfem2d \
-    && git clone --branch devel --depth=1 https://github.com/geodynamics/specfem3d
+    && git clone --branch devel --depth=1 https://github.com/specfem/specfem2d \
+    && git clone --branch devel --depth=1 https://github.com/specfem/specfem3d
 
 RUN cd /home/scoped/pyatoa \
-    && conda install --file requirements.txt \
-    && pip install -e . \
+    && conda env update -f environment.yml -n base \
     && docker-clean
 
 RUN cd /home/scoped/seisflows \
-    && conda install --file requirements.txt \
-    && pip install -e . \
+    && conda env update -f environment.yml -n base \
     && docker-clean
 
 ADD scripts/clean_specfem2d_repo.sh /home/scoped/clean_specfem2d_repo.sh

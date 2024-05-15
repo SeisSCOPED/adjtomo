@@ -21,7 +21,10 @@ rm -rf utils/dynamic_rupture
 rm -rf utils/Visualization
 rm -rf utils/unused_routines
 
-# Remove a few very large examples
+# Save the homogeneous halfspace example to use for the workshop
+mv EXAMPLES/applications/homogeneous_halfspace_HEX8_elastic_absorbing_Stacey_5sides EXAMPLES/homogeneous_halfspace
+
+# Remove the remaining examples
 rm -rf EXAMPLES/benchmarks
 rm -rf EXAMPLES/applications
 rm -rf EXAMPLES/reproducible_study/

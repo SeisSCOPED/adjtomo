@@ -24,6 +24,13 @@ RUN cd /home/scoped/seisflows \
 ADD scripts/clean_specfem2d_repo.sh /home/scoped/clean_specfem2d_repo.sh 
 ADD scripts/clean_specfem3d_repo.sh /home/scoped/clean_specfem3d_repo.sh
 
+# Workaround to use gfortran with intel mpi (not a good engineering practice)
+# Thanks to @mnagaso for this code bit
+RUN mv /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/mpi.mod \
+	   /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/mpi.modbak \
+   && ln -s /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/gfortran/9.1.0/mpi.mod \
+	  /opt/intel/compilers_and_libraries/linux/mpi/intel64/include
+
 RUN cd /home/scoped/specfem2d \
     && ./configure FC=gfortran CC=gcc CXX=mpicxx MPIFC=mpif90 --with-mpi \
     && make all \

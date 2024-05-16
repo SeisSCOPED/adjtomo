@@ -32,14 +32,14 @@ RUN mv /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/mpi.mod \
 	  /opt/intel/compilers_and_libraries/linux/mpi/intel64/include
 
 RUN cd /home/scoped/specfem2d \
-    && ./configure FC=gfortran CC=gcc CXX=mpicxx MPIFC=mpif90 --with-mpi FCFLAGS='-fno-range-check -fallow-argument-mismatch' \
+    && ./configure FC=gfortran CC=gcc CXX=mpicxx MPIFC=mpif90 --with-mpi FCFLAGS='-fno-range-check -fallow-argument-mismatch -fallow-invalid-boz' \
     && make all \
     && bash /home/scoped/clean_specfem2d_repo.sh \
     && rm /home/scoped/clean_specfem2d_repo.sh \
     && docker-clean
 
 RUN cd /home/scoped/specfem3d \
-    && ./configure FC=gfortran CC=gcc CXX=mpicxx MPIFC=mpif90 --with-mpi FCFLAGS='-fno-range-check -fallow-argument-mismatch' \
+    && ./configure FC=gfortran CC=gcc CXX=mpicxx MPIFC=mpif90 --with-mpi FCFLAGS='-fno-range-check -fallow-argument-mismatch -fallow-invalid-boz' \
     && make all \
     && bash /home/scoped/clean_specfem3d_repo.sh \
     && rm /home/scoped/clean_specfem3d_repo.sh \

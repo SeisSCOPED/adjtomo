@@ -24,7 +24,7 @@ RUN cd /home/scoped/seisflows \
 ADD scripts/clean_specfem2d_repo.sh /home/scoped/clean_specfem2d_repo.sh 
 ADD scripts/clean_specfem3d_repo.sh /home/scoped/clean_specfem3d_repo.sh
 
-# Workaround to use gfortran with intel mpi (not good engineering practice)
+# Workaround to use gfortran with intel mpi (not a good engineering practice)
 # Thanks to @mnagaso for this code bit
 RUN mv /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/mpi.mod \
 	   /opt/intel/compilers_and_libraries/linux/mpi/intel64/include/mpi.modbak \
